@@ -1,7 +1,12 @@
 {
   "extends": "../tsconfig.base.json",
   "compilerOptions": {
-    "types": ["node"]
+    "types": ["node"],
+    "lib": ["es2022", "dom"],
+    "module": "esnext",
+    "moduleResolution": "bundler",
+    "jsx": "react-jsx",
+    "resolveJsonModule": true
   },
-  "include": ["./*.ts", "./*.tsx"]
+  "include": ["./*.ts", "./*.tsx", "../packages/ui-components/src/**/*.ts", "../packages/ui-components/src/**/*.tsx"]
 }
