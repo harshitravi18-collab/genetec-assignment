@@ -2,5 +2,18 @@
   "extends": "./tsconfig.base.json",
   "compileOnSave": false,
   "files": [],
-  "references": []
+  "references": [
+    {
+      "path": "./demo-app-e2e"
+    },
+    {
+      "path": "./demo-app"
+    },
+    {
+      "path": "./ui-components"
+    },
+    {
+      "path": "./packages/ui-components"
+    }
+  ]
 }
