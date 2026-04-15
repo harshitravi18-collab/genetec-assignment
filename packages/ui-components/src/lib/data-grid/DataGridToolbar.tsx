@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import { Button, Checkbox, Dropdown, Space } from 'antd';
 import { EyeOutlined, ReloadOutlined } from '@ant-design/icons';
 import type { Column, VisibilityState } from './DataGrid.types';
@@ -17,6 +18,7 @@ export function DataGridToolbar<T>({
   onClearFilters,
   onToggleColumnVisibility,
 }: DataGridToolbarProps<T>) {
+  const { t } = useTranslation();
   const hideableColumns = columns.filter((column) => column.canHide !== false);
 
   return (
@@ -35,7 +37,7 @@ export function DataGridToolbar<T>({
           onClick={onClearFilters}
           disabled={!hasActiveFilters}
         >
-          Clear filters
+          {t('dataGrid.clearFilters')}
         </Button>
       </Space>
 
@@ -55,7 +57,7 @@ export function DataGridToolbar<T>({
           })),
         }}
       >
-        <Button icon={<EyeOutlined />}>Columns</Button>
+        <Button icon={<EyeOutlined />}>{t('dataGrid.columns')}</Button>
       </Dropdown>
     </div>
   );

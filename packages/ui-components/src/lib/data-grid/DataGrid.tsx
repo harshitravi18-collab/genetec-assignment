@@ -1,9 +1,10 @@
+import { useTranslation } from 'react-i18next';
 import {
   CaretDownOutlined,
   CaretUpOutlined,
   SearchOutlined,
 } from '@ant-design/icons';
-import { Alert, Empty, Input, Table } from 'antd';
+import { Alert, Card, Empty, Input, Table } from 'antd';
 import type { ColumnsType } from 'antd/es/table';
 import type { ChangeEvent } from 'react';
 import type { DataGridProps } from './DataGrid.types';
@@ -18,6 +19,7 @@ export function DataGrid<T extends object>({
   error = null,
   pageSize = 5,
 }: DataGridProps<T>) {
+  const { t } = useTranslation();
   const {
     sort,
     filters,
@@ -39,7 +41,7 @@ export function DataGrid<T extends object>({
   }
 
   if (!loading && data.length === 0) {
-    return <Empty description="No data" />;
+    return <Empty description={t('dataGrid.noData')} />;
   }
 
   const tableColumns: ColumnsType<T> = visibleColumns.map((column) => {
@@ -108,7 +110,7 @@ export function DataGrid<T extends object>({
               size="small"
               value={filters[column.key] ?? ''}
               onChange={handleInputChange}
-              placeholder={`Filter ${column.label}`}
+              placeholder={`${t('dataGrid.filterPlaceholder', { label: column.label })}`}
               prefix={<SearchOutlined />}
               allowClear
             />
@@ -129,23 +131,28 @@ export function DataGrid<T extends object>({
         onToggleColumnVisibility={toggleColumnVisibility}
       />
 
-      <Table<T>
-        rowKey={(_record, index) => String(index)}
-        columns={tableColumns}
-        dataSource={paginatedData}
-        loading={loading}
-        pagination={false}
-        locale={{
-          emptyText: <Empty description="No matching results" />,
-        }}
-      />
+      <Card styles={{ body: { padding: 16 } }}>
+        <Table<T>
+          rowKey={(_record, index) => String(index)}
+          columns={tableColumns}
+          dataSource={paginatedData}
+          loading={loading}
+          pagination={false}
+          size="middle"
+          locale={{
+            emptyText: <Empty description={t('dataGrid.noMatchingResults')} />,
+          }}
+        />
 
-      <DataGridPagination
-        currentPage={currentPage}
-        pageSize={pageSize}
-        totalItems={totalItems}
-        onPageChange={setCurrentPage}
-      />
+        <div style={{ marginTop: 16 }}>
+          <DataGridPagination
+            currentPage={currentPage}
+            pageSize={pageSize}
+            totalItems={totalItems}
+            onPageChange={setCurrentPage}
+          />
+        </div>
+      </Card>
     </div>
   );
 }
