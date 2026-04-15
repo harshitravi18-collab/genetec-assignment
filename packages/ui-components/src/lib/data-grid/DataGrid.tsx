@@ -7,36 +7,39 @@ import { Alert, Empty, Input, Table } from 'antd';
 import type { ColumnsType } from 'antd/es/table';
 import type { ChangeEvent } from 'react';
 import type { DataGridProps } from './DataGrid.types';
-import { useTranslation } from 'react-i18next';
-import { useDataGrid } from './useDataGrid';
+import { DataGridPagination } from './DataGridPagination';
 import { DataGridToolbar } from './DataGridToolbar';
+import { useDataGrid } from './useDataGrid';
 
 export function DataGrid<T extends object>({
   data,
   columns,
   loading = false,
   error = null,
+  pageSize = 5,
 }: DataGridProps<T>) {
-  const { t } = useTranslation();
   const {
     sort,
     filters,
     visibleColumns,
-    sortedData,
+    paginatedData,
+    totalItems,
+    currentPage,
     hasActiveFilters,
     visibility,
     handleSort,
     handleFilterChange,
     clearFilters,
     toggleColumnVisibility,
-  } = useDataGrid(data, columns);
+    setCurrentPage,
+  } = useDataGrid(data, columns, pageSize);
 
   if (error) {
     return <Alert type="error" message={error} showIcon />;
   }
 
   if (!loading && data.length === 0) {
-    return <Empty description={t('dataGrid.noData')} />;
+    return <Empty description="No data" />;
   }
 
   const tableColumns: ColumnsType<T> = visibleColumns.map((column) => {
@@ -129,12 +132,19 @@ export function DataGrid<T extends object>({
       <Table<T>
         rowKey={(_record, index) => String(index)}
         columns={tableColumns}
-        dataSource={sortedData}
+        dataSource={paginatedData}
         loading={loading}
         pagination={false}
         locale={{
-          emptyText: <Empty description={t('dataGrid.noMatchingResults')} />,
+          emptyText: <Empty description="No matching results" />,
         }}
+      />
+
+      <DataGridPagination
+        currentPage={currentPage}
+        pageSize={pageSize}
+        totalItems={totalItems}
+        onPageChange={setCurrentPage}
       />
     </div>
   );

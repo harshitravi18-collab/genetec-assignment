@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import type {
   Column,
   FiltersState,
@@ -7,7 +7,11 @@ import type {
 } from './DataGrid.types';
 import { useDebouncedValue } from './useDebouncedValue';
 
-export const useDataGrid = <T>(data: T[], columns: Column<T>[]) => {
+export const useDataGrid = <T>(
+  data: T[],
+  columns: Column<T>[],
+  pageSize = 5,
+) => {
   const [sort, setSort] = useState<SortState>(null);
   const [filters, setFilters] = useState<FiltersState>({});
   const [visibility, setVisibility] = useState<VisibilityState>(() =>
@@ -15,6 +19,7 @@ export const useDataGrid = <T>(data: T[], columns: Column<T>[]) => {
       columns.map((column) => [column.key, column.hidden ? false : true]),
     ),
   );
+  const [currentPage, setCurrentPage] = useState(1);
 
   const debouncedFilters = useDebouncedValue(filters, 250);
 
@@ -72,6 +77,24 @@ export const useDataGrid = <T>(data: T[], columns: Column<T>[]) => {
     });
   }, [filteredData, sort, visibleColumns]);
 
+  const totalItems = sortedData.length;
+  const totalPages = Math.max(1, Math.ceil(totalItems / pageSize));
+
+  useEffect(() => {
+    setCurrentPage(1);
+  }, [debouncedFilters, sort, visibility]);
+
+  useEffect(() => {
+    if (currentPage > totalPages) {
+      setCurrentPage(totalPages);
+    }
+  }, [currentPage, totalPages]);
+
+  const paginatedData = useMemo(() => {
+    const startIndex = (currentPage - 1) * pageSize;
+    return sortedData.slice(startIndex, startIndex + pageSize);
+  }, [currentPage, pageSize, sortedData]);
+
   const handleSort = (key: string) => {
     setSort((previousSort) => {
       if (!previousSort || previousSort.key !== key) {
@@ -113,11 +136,16 @@ export const useDataGrid = <T>(data: T[], columns: Column<T>[]) => {
     filters,
     visibleColumns,
     sortedData,
+    paginatedData,
+    totalItems,
+    totalPages,
+    currentPage,
     hasActiveFilters,
     visibility,
     handleSort,
     handleFilterChange,
     clearFilters,
     toggleColumnVisibility,
+    setCurrentPage,
   };
 };
