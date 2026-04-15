@@ -10,9 +10,6 @@
       "path": "./demo-app"
     },
     {
-      "path": "./ui-components"
-    },
-    {
       "path": "./packages/ui-components"
     }
   ]
