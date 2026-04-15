@@ -8,13 +8,5 @@
   },
   "languageSwitcher": {
     "label": "Sprog"
-  },
-  "timeline": {
-    "noEvents": "Ingen begivenheder at vise.",
-    "regionLabel": "Tidslinje — brug piletasterne til at navigere",
-    "groupListLabel": "Begivenheder den {{date}}",
-    "eventCount_one": "{{count}} begivenhed",
-    "eventCount_other": "{{count}} begivenheder",
-    "keyboardHint": "← → naviger mellem dage · ↑ ↓ naviger begivenheder"
   }
 }

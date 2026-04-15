@@ -8,13 +8,5 @@
   },
   "languageSwitcher": {
     "label": "Language"
-  },
-  "timeline": {
-    "noEvents": "No events to display.",
-    "regionLabel": "Timeline — use arrow keys to navigate",
-    "groupListLabel": "Events on {{date}}",
-    "eventCount_one": "{{count}} event",
-    "eventCount_other": "{{count}} events",
-    "keyboardHint": "← → navigate between days · ↑ ↓ navigate events"
   }
 }
