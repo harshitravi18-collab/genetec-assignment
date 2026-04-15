@@ -16,6 +16,10 @@ const data: Product[] = [
   { id: '4', name: 'Shelf', category: 'Storage', price: 140 },
   { id: '5', name: 'Desk', category: 'Furniture', price: 320 },
   { id: '6', name: 'Bulb', category: 'Lighting', price: 15 },
+  { id: '7', name: 'Sofa', category: 'Furniture', price: 800 },
+  { id: '8', name: 'Cabinet', category: 'Storage', price: 410 },
+  { id: '9', name: 'Mirror', category: 'Decor', price: 90 },
+  { id: '10', name: 'Bench', category: 'Furniture', price: 180 },
 ];
 
 const allColumns: Column<Product>[] = [
@@ -59,6 +63,7 @@ export const Default: Story = {
   args: {
     data,
     columns: allColumns,
+    pageSize: 5,
   },
 };
 
@@ -67,6 +72,7 @@ export const Loading: Story = {
     data: [],
     columns: allColumns,
     loading: true,
+    pageSize: 5,
   },
 };
 
@@ -74,6 +80,7 @@ export const Empty: Story = {
   args: {
     data: [],
     columns: allColumns,
+    pageSize: 5,
   },
 };
 
@@ -82,6 +89,7 @@ export const WithError: Story = {
     data: [],
     columns: allColumns,
     error: 'Failed to load data',
+    pageSize: 5,
   },
 };
 
@@ -94,6 +102,7 @@ export const SortableOnly: Story = {
       filterable: false,
       filterAccessor: undefined,
     })),
+    pageSize: 5,
   },
 };
 
@@ -106,6 +115,7 @@ export const FilterableOnly: Story = {
       sortable: false,
       sortAccessor: undefined,
     })),
+    pageSize: 5,
   },
 };
 
@@ -116,5 +126,6 @@ export const WithHiddenColumn: Story = {
     columns: allColumns.map((column) =>
       column.key === 'price' ? { ...column, hidden: true } : column,
     ),
+    pageSize: 5,
   },
 };

@@ -25,4 +25,5 @@ export type DataGridProps<T> = {
   columns: Column<T>[];
   loading?: boolean;
   error?: string | null;
+  pageSize?: number;
 };
