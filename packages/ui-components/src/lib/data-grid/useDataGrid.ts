@@ -1,13 +1,26 @@
 import { useMemo, useState } from 'react';
-import type { Column, FiltersState, SortState } from './DataGrid.types';
+import type {
+  Column,
+  FiltersState,
+  SortState,
+  VisibilityState,
+} from './DataGrid.types';
+import { useDebouncedValue } from './useDebouncedValue';
 
 export const useDataGrid = <T>(data: T[], columns: Column<T>[]) => {
   const [sort, setSort] = useState<SortState>(null);
   const [filters, setFilters] = useState<FiltersState>({});
+  const [visibility, setVisibility] = useState<VisibilityState>(() =>
+    Object.fromEntries(
+      columns.map((column) => [column.key, column.hidden ? false : true]),
+    ),
+  );
+
+  const debouncedFilters = useDebouncedValue(filters, 250);
 
   const visibleColumns = useMemo(
-    () => columns.filter((column) => !column.hidden),
-    [columns],
+    () => columns.filter((column) => visibility[column.key] !== false),
+    [columns, visibility],
   );
 
   const filteredData = useMemo(() => {
@@ -17,7 +30,7 @@ export const useDataGrid = <T>(data: T[], columns: Column<T>[]) => {
           return true;
         }
 
-        const filterValue = filters[column.key]?.trim().toLowerCase();
+        const filterValue = debouncedFilters[column.key]?.trim().toLowerCase();
         if (!filterValue) {
           return true;
         }
@@ -29,7 +42,7 @@ export const useDataGrid = <T>(data: T[], columns: Column<T>[]) => {
         return rawValue.toLowerCase().includes(filterValue);
       });
     });
-  }, [data, filters, visibleColumns]);
+  }, [data, debouncedFilters, visibleColumns]);
 
   const sortedData = useMemo(() => {
     if (!sort) {
@@ -80,12 +93,31 @@ export const useDataGrid = <T>(data: T[], columns: Column<T>[]) => {
     }));
   };
 
+  const clearFilters = () => {
+    setFilters({});
+  };
+
+  const toggleColumnVisibility = (key: string) => {
+    setVisibility((previous) => ({
+      ...previous,
+      [key]: !previous[key],
+    }));
+  };
+
+  const hasActiveFilters = Object.values(filters).some(
+    (value) => value.trim() !== '',
+  );
+
   return {
     sort,
     filters,
     visibleColumns,
     sortedData,
+    hasActiveFilters,
+    visibility,
     handleSort,
     handleFilterChange,
+    clearFilters,
+    toggleColumnVisibility,
   };
 };

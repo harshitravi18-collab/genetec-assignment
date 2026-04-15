@@ -9,6 +9,7 @@ import type { ChangeEvent } from 'react';
 import type { DataGridProps } from './DataGrid.types';
 import { useTranslation } from 'react-i18next';
 import { useDataGrid } from './useDataGrid';
+import { DataGridToolbar } from './DataGridToolbar';
 
 export function DataGrid<T extends object>({
   data,
@@ -22,8 +23,12 @@ export function DataGrid<T extends object>({
     filters,
     visibleColumns,
     sortedData,
+    hasActiveFilters,
+    visibility,
     handleSort,
     handleFilterChange,
+    clearFilters,
+    toggleColumnVisibility,
   } = useDataGrid(data, columns);
 
   if (error) {
@@ -112,15 +117,25 @@ export function DataGrid<T extends object>({
   });
 
   return (
-    <Table<T>
-      rowKey={(_record, index) => String(index)}
-      columns={tableColumns}
-      dataSource={sortedData}
-      loading={loading}
-      pagination={false}
-      locale={{
-        emptyText: <Empty description={t('dataGrid.noMatchingResults')} />,
-      }}
-    />
+    <div style={{ display: 'grid', gap: 16 }}>
+      <DataGridToolbar
+        columns={columns}
+        visibility={visibility}
+        hasActiveFilters={hasActiveFilters}
+        onClearFilters={clearFilters}
+        onToggleColumnVisibility={toggleColumnVisibility}
+      />
+
+      <Table<T>
+        rowKey={(_record, index) => String(index)}
+        columns={tableColumns}
+        dataSource={sortedData}
+        loading={loading}
+        pagination={false}
+        locale={{
+          emptyText: <Empty description={t('dataGrid.noMatchingResults')} />,
+        }}
+      />
+    </div>
   );
 }

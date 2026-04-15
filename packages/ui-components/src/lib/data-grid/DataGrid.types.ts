@@ -9,6 +9,7 @@ export type Column<T> = {
   filterable?: boolean;
   filterAccessor?: (row: T) => string;
   hidden?: boolean;
+  canHide?: boolean;
 };
 
 export type SortState = {
@@ -17,6 +18,7 @@ export type SortState = {
 } | null;
 
 export type FiltersState = Record<string, string>;
+export type VisibilityState = Record<string, boolean>;
 
 export type DataGridProps<T> = {
   data: T[];
