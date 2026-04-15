@@ -1,0 +1,10 @@
+{
+  "dataGrid": {
+    "noData": "Ingen data",
+    "noMatchingResults": "Ingen matchende resultater",
+    "filterPlaceholder": "Filtrer efter {{label}}"
+  },
+  "languageSwitcher": {
+    "label": "Sprog"
+  }
+}
