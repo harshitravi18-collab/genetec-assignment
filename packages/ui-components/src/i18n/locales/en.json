@@ -2,7 +2,9 @@
   "dataGrid": {
     "noData": "No data",
     "noMatchingResults": "No matching results",
-    "filterPlaceholder": "Filter by {{label}}"
+    "filterPlaceholder": "Filter by {{label}}",
+    "clearFilters": "Clear filters",
+    "columns": "Columns"
   },
   "languageSwitcher": {
     "label": "Language"
