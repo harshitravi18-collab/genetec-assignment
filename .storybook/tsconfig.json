@@ -8,5 +8,10 @@
     "jsx": "react-jsx",
     "resolveJsonModule": true
   },
-  "include": ["./*.ts", "./*.tsx", "../packages/ui-components/src/**/*.ts", "../packages/ui-components/src/**/*.tsx"]
+  "include": [
+    "./*.ts",
+    "./*.tsx",
+    "../packages/ui-components/src/**/*.ts",
+    "../packages/ui-components/src/**/*.tsx"
+  ]
 }
