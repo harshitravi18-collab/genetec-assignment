@@ -3,8 +3,16 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
+    "dev": "pnpm nx serve demo-app",
+    "build": "pnpm nx build demo-app",
+    "test": "pnpm nx run-many -t test",
+    "lint": "pnpm nx run-many -t lint",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "build-storybook": "storybook build",
+    "e2e": "pnpm nx e2e demo-app-e2e",
+    "typecheck": "tsc --noEmit"
   },
   "private": true,
   "devDependencies": {
@@ -58,7 +66,11 @@
     "vitest": "~4.1.0"
   },
   "dependencies": {
+    "@ant-design/icons": "^6.1.1",
+    "antd": "^6.3.5",
+    "i18next": "^26.0.5",
     "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "react-dom": "^19.0.0",
+    "react-i18next": "^17.0.3"
   }
 }
