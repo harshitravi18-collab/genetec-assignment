@@ -71,3 +71,6 @@ debug-storybook.log
 .cursor
 .gemini
 .opencode.json
+
+# TypeScript incremental build cache
+tsconfig.tsbuildinfo
