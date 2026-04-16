@@ -16,18 +16,19 @@
       "grid": {
         "title": "Events Grid",
         "extra": "Reusable DataGrid component",
-        "empty": "DataGrid integration comes next.",
+        "empty": "No events available.",
         "error": "Events could not be loaded."
       },
       "timeline": {
         "title": "Events Timeline",
         "extra": "Reusable Timeline component",
-        "empty": "Timeline integration comes after data wiring."
+        "empty": "No events available.",
+        "error": "Timeline events could not be loaded."
       }
     },
     "plan": {
       "title": "Demo App Integration Plan",
-      "description": "This page will use the shared component library only. The next steps are to add a mock server, fetch event data, render the grid and timeline from the same source, and open the form in a modal for create/edit flows.",
+      "description": "This page uses the shared component library only. The next steps are to add a mock server, fetch event data, render the grid and timeline from the same source, and open the form in a modal for create/edit flows.",
       "steps": {
         "shell": "Step 2 complete: Page shell",
         "msw": "Step 3: MSW",
@@ -52,5 +53,17 @@
       "presentation": "Presentation",
       "training": "Training"
     }
+  },
+  "eventForm": {
+    "fields": {
+      "title": "Title",
+      "date": "Date",
+      "description": "Description"
+    }
+  },
+  "dataGrid": {
+    "noData": "No data available",
+    "noMatchingResults": "No matching results",
+    "filterPlaceholder": "Filter by {{label}}"
   }
 }

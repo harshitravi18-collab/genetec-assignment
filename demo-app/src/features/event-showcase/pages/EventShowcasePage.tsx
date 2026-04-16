@@ -1,23 +1,9 @@
-import {
-  Button,
-  Card,
-  Col,
-  Divider,
-  Empty,
-  Row,
-  Space,
-  Tag,
-  Typography,
-} from 'antd';
-import {
-  CalendarOutlined,
-  PlusOutlined,
-  TableOutlined,
-} from '@ant-design/icons';
+import { Button, Card, Col, Divider, Row, Space, Tag, Typography } from 'antd';
+import { PlusOutlined } from '@ant-design/icons';
 import { useTranslation } from 'react-i18next';
-import { useEventsQuery } from '../hooks/useEventShowcase';
-
 import { EventGridSection } from '../components/EventGridSection';
+import { EventTimelineSection } from '../components/EventTimelineSection';
+import { useEventsQuery } from '../hooks/useEventShowcase';
 
 const { Title, Paragraph, Text } = Typography;
 
@@ -66,56 +52,17 @@ export function EventShowcasePage() {
         </Row>
       </Card>
 
-      <Row gutter={[24, 24]}>
+      <Row gutter={[24, 24]} align="stretch">
         <Col xs={24} xl={14}>
-          <Card
-            title={
-              <Space>
-                <TableOutlined />
-                <span>{t('eventShowcase.sections.grid.title')}</span>
-              </Space>
-            }
-            extra={
-              <Text type="secondary">
-                {t('eventShowcase.sections.grid.extra')}
-              </Text>
-            }
-            style={{ height: '100%' }}
-            styles={{
-              body: {
-                minHeight: 420,
-              },
-            }}
-          >
-            <EventGridSection data={data} isLoading={isLoading} error={error} />
-          </Card>
+          <EventGridSection data={data} isLoading={isLoading} error={error} />
         </Col>
 
         <Col xs={24} xl={10}>
-          <Card
-            title={
-              <Space>
-                <CalendarOutlined />
-                <span>{t('eventShowcase.sections.timeline.title')}</span>
-              </Space>
-            }
-            extra={
-              <Text type="secondary">
-                {t('eventShowcase.sections.timeline.extra')}
-              </Text>
-            }
-            style={{ height: '100%' }}
-            styles={{
-              body: {
-                minHeight: 420,
-              },
-            }}
-          >
-            <Empty
-              description={t('eventShowcase.sections.timeline.empty')}
-              image={Empty.PRESENTED_IMAGE_SIMPLE}
-            />
-          </Card>
+          <EventTimelineSection
+            data={data}
+            isLoading={isLoading}
+            error={error}
+          />
         </Col>
       </Row>
 

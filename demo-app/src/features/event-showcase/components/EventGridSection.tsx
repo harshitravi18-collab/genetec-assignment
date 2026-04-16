@@ -93,6 +93,7 @@ export function EventGridSection({
               accessor: (item) => item.description ?? '—',
             },
           ]}
+          scrollY={345}
         />
       )}
     </Card>
