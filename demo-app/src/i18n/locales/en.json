@@ -82,10 +82,5 @@
       "titleRequired": "Title is required",
       "dateRequired": "Date is required"
     }
-  },
-  "dataGrid": {
-    "noData": "No data available",
-    "noMatchingResults": "No matching results",
-    "filterPlaceholder": "Filter by {{label}}"
   }
 }

@@ -82,10 +82,5 @@
       "titleRequired": "Title is required",
       "dateRequired": "Date is required"
     }
-  },
-  "dataGrid": {
-    "noData": "Ingen data tilgængelig",
-    "noMatchingResults": "Ingen matchende resultater",
-    "filterPlaceholder": "Filtrer efter {{label}}"
   }
 }
