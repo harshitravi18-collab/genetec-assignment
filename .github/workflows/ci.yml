@@ -7,17 +7,23 @@ on:
       - master
 
 concurrency:
-  group: ci-${{ github.ref }}
+  group: ci-${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
+
+permissions:
+  contents: read
 
 jobs:
   quality:
-    name: Quality checks
+    name: Format, lint, typecheck, build
     runs-on: ubuntu-latest
+    timeout-minutes: 20
 
     steps:
       - name: Check out repository
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Set up pnpm
         uses: pnpm/action-setup@v4
@@ -37,7 +43,10 @@ jobs:
       - name: Run lint
         run: pnpm run lint
 
-      - name: Build app
+      - name: Run typecheck
+        run: pnpm run typecheck
+
+      - name: Build demo app
         run: pnpm run build
 
       - name: Build Storybook
