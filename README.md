@@ -131,13 +131,13 @@ All changes go through pull requests — direct pushes to `master` are not allow
 
 ### Branch protection rules (master)
 
-| Rule | Setting |
-|---|---|
-| Require pull request before merging | enabled |
-| Require status checks to pass (`quality`) | enabled |
+| Rule                                           | Setting |
+| ---------------------------------------------- | ------- |
+| Require pull request before merging            | enabled |
+| Require status checks to pass (`quality`)      | enabled |
 | Require branch to be up to date before merging | enabled |
-| Block force pushes | enabled |
-| Automatically delete head branches | enabled |
+| Block force pushes                             | enabled |
+| Automatically delete head branches             | enabled |
 
 > **Note:** enforced status checks require a paid GitHub plan (Pro, Team, or Enterprise). On free accounts, the rules exist but cannot block a merge — contributors should manually verify CI passes before merging.
 
