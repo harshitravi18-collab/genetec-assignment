@@ -13,6 +13,9 @@ importers:
       antd:
         specifier: ^6.3.5
         version: 6.3.5(luxon@3.7.2)(react-dom@19.2.5(react@19.2.5))(react@19.2.5)
+      dayjs:
+        specifier: ^1.11.20
+        version: 1.11.20
       i18next:
         specifier: ^26.0.5
         version: 26.0.5(typescript@5.9.3)
@@ -177,11 +180,7 @@ importers:
         specifier: workspace:*
         version: link:../packages/ui-components
 
-  packages/ui-components:
-    dependencies:
-      dayjs:
-        specifier: ^1.11.20
-        version: 1.11.20
+  packages/ui-components: {}
 
 packages:
   '@adobe/css-tools@4.4.4':

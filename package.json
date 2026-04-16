@@ -69,6 +69,7 @@
   "dependencies": {
     "@ant-design/icons": "^6.1.1",
     "antd": "^6.3.5",
+    "dayjs": "^1.11.20",
     "i18next": "^26.0.5",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
