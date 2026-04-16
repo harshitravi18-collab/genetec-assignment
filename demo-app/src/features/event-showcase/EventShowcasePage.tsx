@@ -34,7 +34,9 @@ export function EventShowcasePage() {
           <Col xs={24} lg={16}>
             <Space direction="vertical" size={8}>
               <Space wrap>
-                <Tag color="blue">{t('eventShowcase.tags.demoApp')}</Tag>
+                <Tag color="blue">
+                  {t('eventShowcase.tags.GenetecEventApp')}
+                </Tag>
                 <Tag color="purple">
                   {t('eventShowcase.tags.componentLibrary')}
                 </Tag>
