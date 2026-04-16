@@ -94,8 +94,8 @@ export const createTimelineEventItem = ({
   return {
     key: event.id,
     color: presentation.color,
-    dot: presentation.icon,
-    children: (
+    icon: presentation.icon,
+    content: (
       <button
         ref={buttonRef}
         id={itemId}
@@ -125,14 +125,14 @@ export const createTimelineEventItem = ({
             borderRadius: 8,
           }}
         >
-          <Space direction="vertical" size={8}>
+          <Space orientation="vertical" size={8}>
             <Space size={8} wrap>
               <Tag color={presentation.color} icon={presentation.icon}>
                 {presentation.label}
               </Tag>
             </Space>
 
-            <Space direction="vertical" size={4}>
+            <Space orientation="vertical" size={4}>
               <Typography.Text strong>{event.title}</Typography.Text>
 
               <Typography.Text type="secondary">

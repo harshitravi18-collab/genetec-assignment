@@ -12,8 +12,8 @@ export const createTimelineDayHeaderItem = ({
   eventCount,
 }: TimelineDayHeaderItemArgs) => ({
   key: `day-${day}`,
-  dot: <span aria-hidden="true" />,
-  children: (
+  icon: <span aria-hidden="true" />,
+  content: (
     <div style={{ paddingBottom: 4 }}>
       <Typography.Title id={headingId} level={5} style={{ margin: 0 }}>
         {day}
