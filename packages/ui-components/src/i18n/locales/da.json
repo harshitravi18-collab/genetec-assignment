@@ -8,5 +8,22 @@
   },
   "languageSwitcher": {
     "label": "Sprog"
+  },
+  "eventForm": {
+    "addTitle": "Tilføj begivenhed",
+    "editTitle": "Rediger begivenhed",
+    "fields.title": "Titel",
+    "fields.date": "Dato",
+    "fields.description": "Beskrivelse",
+    "placeholders.title": "Indtast begivenhedstitel",
+    "placeholders.description": "Indtast begivenhedsbeskrivelse",
+    "actions.cancel": "Annuller",
+    "actions.create": "Opret begivenhed",
+    "actions.save": "Gem ændringer",
+    "validation.titleRequired": "Titel er påkrævet.",
+    "validation.dateRequired": "En gyldig dato er påkrævet.",
+    "success.created": "Begivenhed oprettet succesfuldt.",
+    "success.updated": "Begivenhed opdateret succesfuldt.",
+    "error.generic": "Noget gik galt under lagring af begivenheden."
   }
 }
