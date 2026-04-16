@@ -5,6 +5,7 @@ type DataGridPaginationProps = {
   pageSize: number;
   totalItems: number;
   onPageChange: (page: number) => void;
+  onPageSizeChange: (pageSize: number) => void;
 };
 
 export const DataGridPagination = ({
@@ -12,6 +13,7 @@ export const DataGridPagination = ({
   pageSize,
   totalItems,
   onPageChange,
+  onPageSizeChange,
 }: DataGridPaginationProps) => {
   if (totalItems <= pageSize) {
     return null;
@@ -24,6 +26,9 @@ export const DataGridPagination = ({
         pageSize={pageSize}
         total={totalItems}
         onChange={onPageChange}
+        onShowSizeChange={(_page, size) => onPageSizeChange(size)}
+        showSizeChanger
+        pageSizeOptions={[5, 10, 20, 50]}
         showQuickJumper
         showLessItems
       />

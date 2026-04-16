@@ -10,7 +10,7 @@ import { useDebouncedValue } from './useDebouncedValue';
 export const useDataGrid = <T>(
   data: T[],
   columns: Column<T>[],
-  pageSize = 5,
+  initialPageSize = 5,
 ) => {
   const [sort, setSort] = useState<SortState>(null);
   const [filters, setFilters] = useState<FiltersState>({});
@@ -20,6 +20,7 @@ export const useDataGrid = <T>(
     ),
   );
   const [currentPage, setCurrentPage] = useState(1);
+  const [pageSize, setPageSize] = useState(initialPageSize);
 
   const debouncedFilters = useDebouncedValue(filters, 250);
 
@@ -82,7 +83,7 @@ export const useDataGrid = <T>(
 
   useEffect(() => {
     setCurrentPage(1);
-  }, [debouncedFilters, sort, visibility]);
+  }, [debouncedFilters, sort, visibility, pageSize]);
 
   useEffect(() => {
     if (currentPage > totalPages) {
@@ -140,6 +141,7 @@ export const useDataGrid = <T>(
     totalItems,
     totalPages,
     currentPage,
+    pageSize,
     hasActiveFilters,
     visibility,
     handleSort,
@@ -147,5 +149,6 @@ export const useDataGrid = <T>(
     clearFilters,
     toggleColumnVisibility,
     setCurrentPage,
+    setPageSize,
   };
 };

@@ -27,6 +27,7 @@ export function DataGrid<T extends object>({
     paginatedData,
     totalItems,
     currentPage,
+    pageSize: activePageSize,
     hasActiveFilters,
     visibility,
     handleSort,
@@ -34,6 +35,7 @@ export function DataGrid<T extends object>({
     clearFilters,
     toggleColumnVisibility,
     setCurrentPage,
+    setPageSize,
   } = useDataGrid(data, columns, pageSize);
 
   if (error) {
@@ -147,9 +149,10 @@ export function DataGrid<T extends object>({
         <div style={{ marginTop: 16 }}>
           <DataGridPagination
             currentPage={currentPage}
-            pageSize={pageSize}
+            pageSize={activePageSize}
             totalItems={totalItems}
             onPageChange={setCurrentPage}
+            onPageSizeChange={setPageSize}
           />
         </div>
       </Card>

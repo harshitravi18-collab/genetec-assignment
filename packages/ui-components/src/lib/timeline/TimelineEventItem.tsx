@@ -29,7 +29,7 @@ export const createTimelineEventItem = ({ event, isFocused }: Props) => ({
       }}
     >
       <Card size="small" styles={{ body: { padding: 12 } }}>
-        <Space direction="vertical" size={4}>
+        <Space orientation="vertical" size={4}>
           <Typography.Text strong>{event.title}</Typography.Text>
 
           <Typography.Text type="secondary">
