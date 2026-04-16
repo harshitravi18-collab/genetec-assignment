@@ -51,7 +51,7 @@ const defaultItemAnnouncement = ({
 export function Timeline({
   events,
   ariaLabel = 'Event timeline',
-  instructionsLabel = 'Use left and right arrow keys to move between days. Use up and down arrow keys to move between events in the selected day.',
+  instructionsLabel = 'Use left and right arrow keys to move between days. Use up and down arrow keys to move between events. Use Home and End to jump within a day.',
   getGroupAnnouncement = defaultGroupAnnouncement,
   getItemAnnouncement = defaultItemAnnouncement,
 }: TimelineProps) {
