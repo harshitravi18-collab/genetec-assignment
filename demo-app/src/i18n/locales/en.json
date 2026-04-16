@@ -1,7 +1,7 @@
 {
   "eventShowcase": {
     "tags": {
-      "GenetecEventApp": "Genetec-event-app",
+      "GenetecEventApp": "Genetec Event App",
       "componentLibrary": "Component Library Showcase"
     },
     "hero": {
@@ -16,7 +16,8 @@
       "grid": {
         "title": "Events Grid",
         "extra": "Reusable DataGrid component",
-        "empty": "DataGrid integration comes next."
+        "empty": "DataGrid integration comes next.",
+        "error": "Events could not be loaded."
       },
       "timeline": {
         "title": "Events Timeline",
@@ -35,6 +36,21 @@
         "timeline": "Step 6: Timeline",
         "form": "Step 7: EventForm modal"
       }
+    }
+  },
+  "common": {
+    "error": "Something went wrong",
+    "noData": "No data available"
+  },
+  "event": {
+    "location": "Location",
+    "category": {
+      "label": "Category",
+      "meeting": "Meeting",
+      "workshop": "Workshop",
+      "deadline": "Deadline",
+      "presentation": "Presentation",
+      "training": "Training"
     }
   }
 }

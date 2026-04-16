@@ -15,14 +15,18 @@ import {
   TableOutlined,
 } from '@ant-design/icons';
 import { useTranslation } from 'react-i18next';
+import { useEventsQuery } from '../hooks/useEventShowcase';
+
+import { EventGridSection } from '../components/EventGridSection';
 
 const { Title, Paragraph, Text } = Typography;
 
 export function EventShowcasePage() {
   const { t } = useTranslation();
+  const { data, isLoading, error } = useEventsQuery();
 
   return (
-    <Space direction="vertical" size={24} style={{ width: '100%' }}>
+    <Space orientation="vertical" size={24} style={{ width: '100%' }}>
       <Card
         styles={{
           body: {
@@ -32,7 +36,7 @@ export function EventShowcasePage() {
       >
         <Row gutter={[24, 24]} align="middle" justify="space-between">
           <Col xs={24} lg={16}>
-            <Space direction="vertical" size={8}>
+            <Space orientation="vertical" size={8}>
               <Space wrap>
                 <Tag color="blue">
                   {t('eventShowcase.tags.GenetecEventApp')}
@@ -83,10 +87,7 @@ export function EventShowcasePage() {
               },
             }}
           >
-            <Empty
-              description={t('eventShowcase.sections.grid.empty')}
-              image={Empty.PRESENTED_IMAGE_SIMPLE}
-            />
+            <EventGridSection data={data} isLoading={isLoading} error={error} />
           </Card>
         </Col>
 

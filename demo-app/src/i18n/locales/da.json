@@ -1,7 +1,7 @@
 {
   "eventShowcase": {
     "tags": {
-      "GenetecEventApp": "Genetec-event-app",
+      "GenetecEventApp": "Genetec Event App",
       "componentLibrary": "Komponentbibliotek showcase"
     },
     "hero": {
@@ -16,7 +16,8 @@
       "grid": {
         "title": "Event-grid",
         "extra": "Genanvendelig DataGrid-komponent",
-        "empty": "DataGrid-integration kommer som næste skridt."
+        "empty": "DataGrid-integration kommer som næste skridt.",
+        "error": "Events kunne ikke indlæses."
       },
       "timeline": {
         "title": "Event-timeline",
@@ -35,6 +36,21 @@
         "timeline": "Step 6: Timeline",
         "form": "Step 7: EventForm-modal"
       }
+    }
+  },
+  "common": {
+    "error": "Noget gik galt",
+    "noData": "Ingen data tilgængelig"
+  },
+  "event": {
+    "location": "Lokation",
+    "category": {
+      "label": "Kategori",
+      "meeting": "Møde",
+      "workshop": "Workshop",
+      "deadline": "Deadline",
+      "presentation": "Præsentation",
+      "training": "Træning"
     }
   }
 }
