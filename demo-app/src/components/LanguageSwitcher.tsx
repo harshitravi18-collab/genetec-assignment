@@ -8,49 +8,41 @@ const STORAGE_KEY = 'demo-app-language';
 export function LanguageSwitcher() {
   const { i18n, t } = useTranslation();
 
-  const value = useMemo(() => {
-    return i18n.language.startsWith('da') ? 'da' : 'en';
-  }, [i18n.language]);
+  const value = useMemo(
+    () => (i18n.language.startsWith('da') ? 'da' : 'en'),
+    [i18n.language],
+  );
 
   return (
     <Space
-      size={10}
+      size={8}
       align="center"
       style={{
-        padding: '8px 12px',
-        borderRadius: 999,
-        background: '#f5f7fa',
-        border: '1px solid #e5e7eb',
+        padding: '6px 10px',
+        borderRadius: 10,
+        border: '1px solid #f0f0f0',
+        background: '#fff',
       }}
     >
-      <GlobalOutlined style={{ color: '#1677ff', fontSize: 16 }} />
+      <GlobalOutlined style={{ color: '#1677ff', fontSize: 14 }} />
 
-      <div style={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
-        <Typography.Text
-          type="secondary"
-          style={{
-            fontSize: 12,
-            lineHeight: 1,
-          }}
-        >
-          {t('languageSwitcher.label')}
-        </Typography.Text>
+      <Typography.Text type="secondary" style={{ fontSize: 12, lineHeight: 1 }}>
+        {t('languageSwitcher.label')}
+      </Typography.Text>
 
-        <Segmented
-          size="middle"
-          value={value}
-          options={[
-            { label: 'EN', value: 'en' },
-            { label: 'DA', value: 'da' },
-          ]}
-          onChange={(nextValue) => {
-            const nextLanguage = String(nextValue);
-
-            void i18n.changeLanguage(nextLanguage);
-            window.localStorage.setItem(STORAGE_KEY, nextLanguage);
-          }}
-        />
-      </div>
+      <Segmented
+        size="small"
+        value={value}
+        options={[
+          { label: 'EN', value: 'en' },
+          { label: 'DA', value: 'da' },
+        ]}
+        onChange={(nextValue) => {
+          const nextLanguage = String(nextValue);
+          void i18n.changeLanguage(nextLanguage);
+          window.localStorage.setItem(STORAGE_KEY, nextLanguage);
+        }}
+      />
     </Space>
   );
 }
