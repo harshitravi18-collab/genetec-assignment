@@ -3,6 +3,15 @@
   "version": "0.0.1",
   "private": true,
   "dependencies": {
-    "@org/ui-components": "workspace:*"
+    "@org/ui-components": "workspace:*",
+    "@tanstack/react-query": "^5.99.0"
+  },
+  "devDependencies": {
+    "msw": "^2.13.3"
+  },
+  "msw": {
+    "workerDirectory": [
+      "public"
+    ]
   }
 }
