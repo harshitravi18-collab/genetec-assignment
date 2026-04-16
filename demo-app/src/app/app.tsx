@@ -1,5 +1,5 @@
 import { ConfigProvider, Layout, theme } from 'antd';
-import { EventShowcasePage } from '../features/event-showcase/EventShowcasePage';
+import { EventShowcasePage } from '../features/event-showcase/pages/EventShowcasePage';
 
 const { Content } = Layout;
 
