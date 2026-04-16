@@ -74,6 +74,17 @@ export function EventTimelineSection({
               date: event.date,
               description: event.description,
               color: getTimelineColor(event.category),
+              type:
+                event.category === 'meeting'
+                  ? 'meeting'
+                  : event.category === 'deadline'
+                    ? 'incident'
+                    : event.category === 'workshop'
+                      ? 'release'
+                      : event.category === 'presentation'
+                        ? 'task'
+                        : 'reminder',
+              typeLabel: event.category,
             }))}
           />
         </div>
