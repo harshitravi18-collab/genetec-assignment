@@ -27,7 +27,7 @@ export function EventGridSection({
       }
       styles={{
         body: {
-          minHeight: 420,
+          minHeight: 450,
         },
       }}
     >
