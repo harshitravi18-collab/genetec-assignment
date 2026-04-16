@@ -9,4 +9,28 @@ export const handlers = [
       data: events,
     });
   }),
+
+  http.post('/api/events', async ({ request }) => {
+    const body = (await request.json()) as {
+      title: string;
+      date: string;
+      description?: string;
+      location?: string;
+      category:
+        | 'meeting'
+        | 'workshop'
+        | 'deadline'
+        | 'presentation'
+        | 'training';
+    };
+
+    const event = await eventsStore.create(body);
+
+    return HttpResponse.json(
+      {
+        data: event,
+      },
+      { status: 201 },
+    );
+  }),
 ];

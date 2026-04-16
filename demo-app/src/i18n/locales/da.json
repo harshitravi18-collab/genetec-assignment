@@ -55,10 +55,32 @@
     }
   },
   "eventForm": {
+    "addTitle": "Add Event",
+    "editTitle": "Edit Event",
     "fields": {
-      "title": "Titel",
-      "date": "Dato",
-      "description": "Beskrivelse"
+      "title": "Title",
+      "date": "Date",
+      "description": "Description"
+    },
+    "placeholders": {
+      "title": "Enter event title",
+      "description": "Enter event description"
+    },
+    "actions": {
+      "cancel": "Cancel",
+      "create": "Create",
+      "save": "Save"
+    },
+    "success": {
+      "created": "Event created successfully",
+      "updated": "Event updated successfully"
+    },
+    "error": {
+      "generic": "Something went wrong"
+    },
+    "validation": {
+      "titleRequired": "Title is required",
+      "dateRequired": "Date is required"
     }
   },
   "dataGrid": {
