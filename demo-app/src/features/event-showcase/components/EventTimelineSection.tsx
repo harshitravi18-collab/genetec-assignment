@@ -35,7 +35,7 @@ export function EventTimelineSection({
 }: EventTimelineSectionProps) {
   const { t } = useTranslation();
 
-  const timelineEvents = data?.slice(0, 50) ?? [];
+  const timelineEvents = data ?? [];
 
   return (
     <Card

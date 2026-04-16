@@ -59,6 +59,28 @@
       "title": "Title",
       "date": "Date",
       "description": "Description"
+    },
+    "addTitle": "Add Event",
+    "editTitle": "Edit Event",
+    "placeholders": {
+      "title": "Enter event title",
+      "description": "Enter event description"
+    },
+    "actions": {
+      "cancel": "Cancel",
+      "create": "Create",
+      "save": "Save"
+    },
+    "success": {
+      "created": "Event created successfully",
+      "updated": "Event updated successfully"
+    },
+    "error": {
+      "generic": "Something went wrong"
+    },
+    "validation": {
+      "titleRequired": "Title is required",
+      "dateRequired": "Date is required"
     }
   },
   "dataGrid": {
