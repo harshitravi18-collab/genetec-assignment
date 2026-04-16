@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Button, Card, Col, Row, Space, Tag, Typography } from 'antd';
 import { PlusOutlined } from '@ant-design/icons';
 import { useTranslation } from 'react-i18next';
+import { LanguageSwitcher } from '../../../components/LanguageSwitcher';
 import { EventFormModal } from '../components/EventFormModal';
 import { EventGridSection } from '../components/EventGridSection';
 import { EventTimelineSection } from '../components/EventTimelineSection';
@@ -24,7 +25,7 @@ export function EventShowcasePage() {
         }}
       >
         <Row gutter={[24, 24]} align="middle" justify="space-between">
-          <Col xs={24} lg={16}>
+          <Col xs={24} lg={14}>
             <Space orientation="vertical" size={8}>
               <Space wrap>
                 <Tag color="blue">
@@ -46,14 +47,25 @@ export function EventShowcasePage() {
           </Col>
 
           <Col xs={24} lg="auto">
-            <Button
-              type="primary"
-              icon={<PlusOutlined />}
-              size="large"
-              onClick={() => setIsCreateModalOpen(true)}
+            <Space
+              wrap
+              size={12}
+              style={{
+                width: '100%',
+                justifyContent: 'flex-end',
+              }}
             >
-              {t('eventShowcase.actions.newEvent')}
-            </Button>
+              <LanguageSwitcher />
+
+              <Button
+                type="primary"
+                icon={<PlusOutlined />}
+                size="large"
+                onClick={() => setIsCreateModalOpen(true)}
+              >
+                {t('eventShowcase.actions.newEvent')}
+              </Button>
+            </Space>
           </Col>
         </Row>
       </Card>
