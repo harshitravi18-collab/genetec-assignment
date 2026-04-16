@@ -1,13 +1,56 @@
-# compiled output
+# ---- Build outputs ----
 dist
 tmp
 out-tsc
+build
+.output
 
-# dependencies
+# ---- Dependencies ----
 node_modules
 
-# IDEs and editors
-/.idea
+# ---- Nx ----
+.nx/cache
+.nx/workspace-data
+.nx/polygraph
+.github/instructions/nx.instructions.md
+
+# ---- TypeScript ----
+*.tsbuildinfo
+tsconfig.tsbuildinfo
+
+# ---- Vite / Vitest ----
+vite.config.*.timestamp*
+vitest.config.*.timestamp*
+
+# ---- Test output ----
+coverage
+test-output
+test-results
+playwright-report
+blob-report
+
+# ---- Storybook ----
+storybook-static
+debug-storybook.log
+
+# ---- Environment variables ----
+.env
+.env.local
+.env.*.local
+
+# ---- Logs ----
+*.log
+npm-debug.log
+yarn-error.log
+
+# ---- OS files ----
+.DS_Store
+Thumbs.db
+*.tmp
+*.swp
+
+# ---- IDEs ----
+.idea
 .project
 .classpath
 .c9/
@@ -15,60 +58,14 @@ node_modules
 .settings/
 *.sublime-workspace
 
-# IDE - VSCode
+# VSCode — allow shared config, ignore personal settings
 .vscode/*
 !.vscode/settings.json
 !.vscode/tasks.json
 !.vscode/launch.json
 !.vscode/extensions.json
 
-# misc
-/.sass-cache
-/connect.lock
-/coverage
-/libpeerconnection.log
-npm-debug.log
-yarn-error.log
-testem.log
-/typings
+# ---- AI tooling ----
 
-# System Files
-.DS_Store
-Thumbs.db
-
-.nx/cache
-.nx/workspace-data
-
-.github/instructions/nx.instructions.md
-
-.nx/polygraph
-vite.config.*.timestamp*
-vitest.config.*.timestamp*
-test-output
-
-# Storybook
-storybook-static
-debug-storybook.log
-
-# Local env
-.env
-.env.local
-.env.*.local
-
-# Logs
-*.log
-
-# OS / temp
-*.tmp
-*.swp
-
-# AI / tooling (cleanup)
-.agents
 .claude
-.codex
-.cursor
-.gemini
-.opencode.json
 
-# TypeScript incremental build cache
-tsconfig.tsbuildinfo
