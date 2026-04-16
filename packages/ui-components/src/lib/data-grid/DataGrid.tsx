@@ -18,6 +18,7 @@ export function DataGrid<T extends object>({
   loading = false,
   error = null,
   pageSize = 5,
+  scrollY,
 }: DataGridProps<T>) {
   const { t } = useTranslation();
   const {
@@ -141,6 +142,7 @@ export function DataGrid<T extends object>({
           loading={loading}
           pagination={false}
           size="middle"
+          scroll={scrollY ? { y: scrollY } : undefined}
           locale={{
             emptyText: <Empty description={t('dataGrid.noMatchingResults')} />,
           }}

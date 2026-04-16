@@ -26,4 +26,5 @@ export type DataGridProps<T> = {
   loading?: boolean;
   error?: string | null;
   pageSize?: number;
+  scrollY?: number;
 };
