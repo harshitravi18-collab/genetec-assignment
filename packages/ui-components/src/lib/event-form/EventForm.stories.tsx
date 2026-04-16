@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import dayjs from 'dayjs';
+import React from 'react';
 import { EventForm } from './EventForm';
 
 const meta: Meta<typeof EventForm> = {
@@ -35,12 +36,11 @@ const meta: Meta<typeof EventForm> = {
 };
 
 export default meta;
+
 type Story = StoryObj<typeof EventForm>;
 
-/** Default add-mode form with no pre-filled values */
 export const Add: Story = {};
 
-/** Edit mode with pre-filled values */
 export const Edit: Story = {
   args: {
     mode: 'edit',
@@ -52,7 +52,6 @@ export const Edit: Story = {
   },
 };
 
-/** Add mode with partially filled data */
 export const AddPrefilled: Story = {
   args: {
     initialValues: {
@@ -63,7 +62,6 @@ export const AddPrefilled: Story = {
   },
 };
 
-/** Long content to test layout */
 export const LongContent: Story = {
   args: {
     mode: 'edit',
@@ -76,32 +74,30 @@ export const LongContent: Story = {
   },
 };
 
-/** Simulates loading state during save */
 export const Saving: Story = {
   args: {
     onSave: async () =>
-      new Promise<void>((resolve) => {
+      new Promise((resolve) => {
         setTimeout(resolve, 3000);
       }),
   },
 };
 
-/** Simulates save failure */
 export const SaveError: Story = {
   args: {
     onSave: async () => {
-      throw new Error('Server error — please try again.');
+      throw new Error('Server error - please try again.');
     },
   },
 };
 
-/** Narrow container to test responsiveness */
 export const Narrow: Story = {
   decorators: [
-    (StoryComponent) => (
-      <div style={{ maxWidth: 360 }}>
-        <StoryComponent />
-      </div>
-    ),
+    (StoryComponent) =>
+      React.createElement(
+        'div',
+        { style: { maxWidth: 360 } },
+        React.createElement(StoryComponent),
+      ),
   ],
 };
