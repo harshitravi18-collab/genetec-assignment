@@ -8,5 +8,22 @@
   },
   "languageSwitcher": {
     "label": "Language"
+  },
+  "eventForm": {
+    "addTitle": "Add event",
+    "editTitle": "Edit event",
+    "fields.title": "Title",
+    "fields.date": "Date",
+    "fields.description": "Description",
+    "placeholders.title": "Enter event title",
+    "placeholders.description": "Enter event description",
+    "actions.cancel": "Cancel",
+    "actions.create": "Create event",
+    "actions.save": "Save changes",
+    "validation.titleRequired": "Title is required.",
+    "validation.dateRequired": "A valid date is required.",
+    "success.created": "Event created successfully.",
+    "success.updated": "Event updated successfully.",
+    "error.generic": "Something went wrong while saving the event."
   }
 }
