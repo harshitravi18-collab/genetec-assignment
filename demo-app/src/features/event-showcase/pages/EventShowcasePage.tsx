@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Button, Card, Col, Divider, Row, Space, Tag, Typography } from 'antd';
+import { Button, Card, Col, Row, Space, Tag, Typography } from 'antd';
 import { PlusOutlined } from '@ant-design/icons';
 import { useTranslation } from 'react-i18next';
 import { EventFormModal } from '../components/EventFormModal';
@@ -7,7 +7,7 @@ import { EventGridSection } from '../components/EventGridSection';
 import { EventTimelineSection } from '../components/EventTimelineSection';
 import { useEventsQuery } from '../hooks/useEventShowcase';
 
-const { Title, Paragraph, Text } = Typography;
+const { Title, Paragraph } = Typography;
 
 export function EventShowcasePage() {
   const { t } = useTranslation();
@@ -42,8 +42,6 @@ export function EventShowcasePage() {
               <Paragraph style={{ margin: 0, maxWidth: 760 }}>
                 {t('eventShowcase.hero.description')}
               </Paragraph>
-
-              <Text type="secondary">{t('eventShowcase.hero.helperText')}</Text>
             </Space>
           </Col>
 
@@ -73,27 +71,6 @@ export function EventShowcasePage() {
           />
         </Col>
       </Row>
-
-      <Card>
-        <Title level={4} style={{ marginTop: 0 }}>
-          {t('eventShowcase.plan.title')}
-        </Title>
-
-        <Paragraph style={{ marginBottom: 12 }}>
-          {t('eventShowcase.plan.description')}
-        </Paragraph>
-
-        <Divider style={{ margin: '16px 0' }} />
-
-        <Space wrap>
-          <Tag>{t('eventShowcase.plan.steps.shell')}</Tag>
-          <Tag>{t('eventShowcase.plan.steps.msw')}</Tag>
-          <Tag>{t('eventShowcase.plan.steps.state')}</Tag>
-          <Tag>{t('eventShowcase.plan.steps.grid')}</Tag>
-          <Tag>{t('eventShowcase.plan.steps.timeline')}</Tag>
-          <Tag>{t('eventShowcase.plan.steps.form')}</Tag>
-        </Space>
-      </Card>
 
       <EventFormModal
         open={isCreateModalOpen}
