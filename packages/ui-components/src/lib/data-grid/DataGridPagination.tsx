@@ -28,7 +28,7 @@ export const DataGridPagination = ({
         onChange={onPageChange}
         onShowSizeChange={(_page, size) => onPageSizeChange(size)}
         showSizeChanger
-        pageSizeOptions={[5, 10, 20, 50]}
+        pageSizeOptions={[10, 20, 50]}
         showQuickJumper
         showLessItems
       />
