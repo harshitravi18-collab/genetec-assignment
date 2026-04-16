@@ -1,0 +1,40 @@
+{
+  "eventShowcase": {
+    "tags": {
+      "GenetecEventApp": "Genetec-event-app",
+      "componentLibrary": "Component Library Showcase"
+    },
+    "hero": {
+      "title": "Event Management Showcase",
+      "description": "This demo app showcases the reusable DataGrid, Timeline, and Event Form components from the shared UI library in a realistic event-management scenario.",
+      "helperText": "Next step: wire mock API data and connect create/edit flows."
+    },
+    "actions": {
+      "newEvent": "New Event"
+    },
+    "sections": {
+      "grid": {
+        "title": "Events Grid",
+        "extra": "Reusable DataGrid component",
+        "empty": "DataGrid integration comes next."
+      },
+      "timeline": {
+        "title": "Events Timeline",
+        "extra": "Reusable Timeline component",
+        "empty": "Timeline integration comes after data wiring."
+      }
+    },
+    "plan": {
+      "title": "Demo App Integration Plan",
+      "description": "This page will use the shared component library only. The next steps are to add a mock server, fetch event data, render the grid and timeline from the same source, and open the form in a modal for create/edit flows.",
+      "steps": {
+        "shell": "Step 2 complete: Page shell",
+        "msw": "Step 3: MSW",
+        "state": "Step 4: Shared event state",
+        "grid": "Step 5: DataGrid",
+        "timeline": "Step 6: Timeline",
+        "form": "Step 7: EventForm modal"
+      }
+    }
+  }
+}

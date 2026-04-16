@@ -1,0 +1,40 @@
+{
+  "eventShowcase": {
+    "tags": {
+      "GenetecEventApp": "Genetec-event-app",
+      "componentLibrary": "Komponentbibliotek showcase"
+    },
+    "hero": {
+      "title": "Event Management Showcase",
+      "description": "Denne demo-app viser de genanvendelige DataGrid-, Timeline- og Event Form-komponenter fra det delte UI-bibliotek i et realistisk event management-scenarie.",
+      "helperText": "Næste skridt: tilføj mock API-data og forbind create/edit-flows."
+    },
+    "actions": {
+      "newEvent": "Ny event"
+    },
+    "sections": {
+      "grid": {
+        "title": "Event-grid",
+        "extra": "Genanvendelig DataGrid-komponent",
+        "empty": "DataGrid-integration kommer som næste skridt."
+      },
+      "timeline": {
+        "title": "Event-timeline",
+        "extra": "Genanvendelig Timeline-komponent",
+        "empty": "Timeline-integration kommer efter dataforbindelsen."
+      }
+    },
+    "plan": {
+      "title": "Integrationsplan for demo-app",
+      "description": "Denne side bruger kun det delte komponentbibliotek. De næste skridt er at tilføje en mock-server, hente eventdata, rendere grid og timeline fra samme kilde og åbne formularen i en modal til create/edit-flows.",
+      "steps": {
+        "shell": "Step 2 færdig: App-shell",
+        "msw": "Step 3: MSW",
+        "state": "Step 4: Fælles event-state",
+        "grid": "Step 5: DataGrid",
+        "timeline": "Step 6: Timeline",
+        "form": "Step 7: EventForm-modal"
+      }
+    }
+  }
+}

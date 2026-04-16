@@ -1,12 +1,24 @@
-// Uncomment this line to use CSS modules
-// import styles from './app.module.css';
-import NxWelcome from './nx-welcome';
+import { ConfigProvider, Layout, theme } from 'antd';
+import { EventShowcasePage } from '../features/event-showcase/pages/EventShowcasePage';
+
+const { Content } = Layout;
 
 export function App() {
   return (
-    <div>
-      <NxWelcome title="@org/demo-app" />
-    </div>
+    <ConfigProvider
+      theme={{
+        algorithm: theme.defaultAlgorithm,
+        token: {
+          borderRadius: 12,
+        },
+      }}
+    >
+      <Layout style={{ minHeight: '100vh', background: '#f5f7fa' }}>
+        <Content style={{ padding: '32px 24px' }}>
+          <EventShowcasePage />
+        </Content>
+      </Layout>
+    </ConfigProvider>
   );
 }
 
