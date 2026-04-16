@@ -16,13 +16,14 @@
       "grid": {
         "title": "Event-grid",
         "extra": "Genanvendelig DataGrid-komponent",
-        "empty": "DataGrid-integration kommer som næste skridt.",
+        "empty": "Ingen events tilgængelige.",
         "error": "Events kunne ikke indlæses."
       },
       "timeline": {
         "title": "Event-timeline",
         "extra": "Genanvendelig Timeline-komponent",
-        "empty": "Timeline-integration kommer efter dataforbindelsen."
+        "empty": "Ingen events tilgængelige.",
+        "error": "Timeline-events kunne ikke indlæses."
       }
     },
     "plan": {
@@ -52,5 +53,17 @@
       "presentation": "Præsentation",
       "training": "Træning"
     }
+  },
+  "eventForm": {
+    "fields": {
+      "title": "Titel",
+      "date": "Dato",
+      "description": "Beskrivelse"
+    }
+  },
+  "dataGrid": {
+    "noData": "Ingen data tilgængelig",
+    "noMatchingResults": "Ingen matchende resultater",
+    "filterPlaceholder": "Filtrer efter {{label}}"
   }
 }
