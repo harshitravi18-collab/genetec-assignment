@@ -39,6 +39,9 @@
       }
     }
   },
+  "languageSwitcher": {
+    "label": "Sprog"
+  },
   "common": {
     "error": "Noget gik galt",
     "noData": "Ingen data tilgængelig"
@@ -55,32 +58,32 @@
     }
   },
   "eventForm": {
-    "addTitle": "Add Event",
-    "editTitle": "Edit Event",
+    "addTitle": "Tilføj event",
+    "editTitle": "Redigér event",
     "fields": {
-      "title": "Title",
-      "date": "Date",
-      "description": "Description"
+      "title": "Titel",
+      "date": "Dato",
+      "description": "Beskrivelse"
     },
     "placeholders": {
-      "title": "Enter event title",
-      "description": "Enter event description"
+      "title": "Indtast eventtitel",
+      "description": "Indtast eventbeskrivelse"
     },
     "actions": {
-      "cancel": "Cancel",
-      "create": "Create",
-      "save": "Save"
+      "cancel": "Annullér",
+      "create": "Opret",
+      "save": "Gem"
     },
     "success": {
-      "created": "Event created successfully",
-      "updated": "Event updated successfully"
+      "created": "Event oprettet",
+      "updated": "Event opdateret"
     },
     "error": {
-      "generic": "Something went wrong"
+      "generic": "Noget gik galt"
     },
     "validation": {
-      "titleRequired": "Title is required",
-      "dateRequired": "Date is required"
+      "titleRequired": "Titel er påkrævet",
+      "dateRequired": "Dato er påkrævet"
     }
   }
 }

@@ -39,6 +39,9 @@
       }
     }
   },
+  "languageSwitcher": {
+    "label": "Language"
+  },
   "common": {
     "error": "Something went wrong",
     "noData": "No data available"
