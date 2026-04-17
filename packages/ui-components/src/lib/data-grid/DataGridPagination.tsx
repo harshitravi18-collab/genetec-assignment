@@ -20,7 +20,10 @@ export const DataGridPagination = ({
   }
 
   return (
-    <div data-testid="data-grid-pagination" style={{ display: 'flex', justifyContent: 'flex-end' }}>
+    <div
+      data-testid="data-grid-pagination"
+      style={{ display: 'flex', justifyContent: 'flex-end' }}
+    >
       <Pagination
         data-testid="data-grid-pagination-control"
         current={currentPage}

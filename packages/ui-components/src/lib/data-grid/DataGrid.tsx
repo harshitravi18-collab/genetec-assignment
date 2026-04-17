@@ -40,11 +40,20 @@ export function DataGrid<T extends object>({
   } = useDataGrid(data, columns, pageSize);
 
   if (error) {
-    return <Alert data-testid="data-grid-error" type="error" message={error} showIcon />;
+    return (
+      <Alert
+        data-testid="data-grid-error"
+        type="error"
+        message={error}
+        showIcon
+      />
+    );
   }
 
   if (!loading && data.length === 0) {
-    return <Empty data-testid="data-grid-empty" description={t('dataGrid.noData')} />;
+    return (
+      <Empty data-testid="data-grid-empty" description={t('dataGrid.noData')} />
+    );
   }
 
   const tableColumns: ColumnsType<T> = visibleColumns.map((column) => {
@@ -151,7 +160,10 @@ export function DataGrid<T extends object>({
           }}
         />
 
-        <div data-testid="data-grid-pagination-wrapper" style={{ marginTop: 16 }}>
+        <div
+          data-testid="data-grid-pagination-wrapper"
+          style={{ marginTop: 16 }}
+        >
           <DataGridPagination
             currentPage={currentPage}
             pageSize={activePageSize}

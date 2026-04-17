@@ -137,7 +137,9 @@ export function EventForm({
         />
 
         <Space>
-          <Button data-testid="event-form-cancel" onClick={onCancel}>{t('eventForm.actions.cancel')}</Button>
+          <Button data-testid="event-form-cancel" onClick={onCancel}>
+            {t('eventForm.actions.cancel')}
+          </Button>
 
           <Button
             data-testid="event-form-submit"
@@ -150,12 +152,22 @@ export function EventForm({
         </Space>
 
         {submitError ? (
-          <Alert data-testid="event-form-submit-error" type="error" showIcon message={submitError} />
+          <Alert
+            data-testid="event-form-submit-error"
+            type="error"
+            showIcon
+            message={submitError}
+          />
         ) : null}
 
         {successMessage ? (
           <div data-testid="event-form-success" aria-live="polite">
-            <Alert data-testid="event-form-success-alert" type="success" showIcon message={successMessage} />
+            <Alert
+              data-testid="event-form-success-alert"
+              type="success"
+              showIcon
+              message={successMessage}
+            />
           </div>
         ) : null}
       </div>

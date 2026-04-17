@@ -36,7 +36,10 @@ export const EventFormFields = ({
 }: EventFormFieldsProps) => {
   return (
     <div data-testid="event-form-fields" style={{ display: 'grid', gap: 16 }}>
-      <div data-testid="event-form-title-field" style={{ display: 'grid', gap: 6 }}>
+      <div
+        data-testid="event-form-title-field"
+        style={{ display: 'grid', gap: 6 }}
+      >
         <label htmlFor="event-title">{titleLabel}</label>
         <Input
           data-testid="event-form-title-input"
@@ -48,13 +51,20 @@ export const EventFormFields = ({
           status={errors.title ? 'error' : ''}
         />
         {errors.title ? (
-          <div data-testid="event-form-title-error" role="alert" style={{ color: '#ff4d4f', fontSize: 12 }}>
+          <div
+            data-testid="event-form-title-error"
+            role="alert"
+            style={{ color: '#ff4d4f', fontSize: 12 }}
+          >
             {errors.title}
           </div>
         ) : null}
       </div>
 
-      <div data-testid="event-form-date-field" style={{ display: 'grid', gap: 6 }}>
+      <div
+        data-testid="event-form-date-field"
+        style={{ display: 'grid', gap: 6 }}
+      >
         <label htmlFor="event-date">{dateLabel}</label>
         <DatePicker
           data-testid="event-form-date-input"
@@ -67,13 +77,20 @@ export const EventFormFields = ({
           status={errors.date ? 'error' : ''}
         />
         {errors.date ? (
-          <div data-testid="event-form-date-error" role="alert" style={{ color: '#ff4d4f', fontSize: 12 }}>
+          <div
+            data-testid="event-form-date-error"
+            role="alert"
+            style={{ color: '#ff4d4f', fontSize: 12 }}
+          >
             {errors.date}
           </div>
         ) : null}
       </div>
 
-      <div data-testid="event-form-description-field" style={{ display: 'grid', gap: 6 }}>
+      <div
+        data-testid="event-form-description-field"
+        style={{ display: 'grid', gap: 6 }}
+      >
         <label htmlFor="event-description">{descriptionLabel}</label>
         <Input.TextArea
           data-testid="event-form-description-input"

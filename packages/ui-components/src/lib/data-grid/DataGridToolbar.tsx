@@ -60,7 +60,9 @@ export function DataGridToolbar<T>({
           })),
         }}
       >
-        <Button data-testid="data-grid-columns-button" icon={<EyeOutlined />}>{t('dataGrid.columns')}</Button>
+        <Button data-testid="data-grid-columns-button" icon={<EyeOutlined />}>
+          {t('dataGrid.columns')}
+        </Button>
       </Dropdown>
     </div>
   );
