@@ -15,7 +15,12 @@ export function AppShell({ children, onCreateEvent }: AppShellProps) {
   const { t } = useTranslation();
 
   return (
-    <Space data-testid="app-shell" direction="vertical" size={24} style={{ width: '100%' }}>
+    <Space
+      data-testid="app-shell"
+      direction="vertical"
+      size={24}
+      style={{ width: '100%' }}
+    >
       <Card
         data-testid="app-shell-header"
         styles={{
@@ -39,12 +44,19 @@ export function AppShell({ children, onCreateEvent }: AppShellProps) {
                 <Tag data-testid="app-shell-tag-genetec" color="blue">
                   {t('eventShowcase.tags.GenetecEventApp')}
                 </Tag>
-                <Tag data-testid="app-shell-tag-component-library" color="purple">
+                <Tag
+                  data-testid="app-shell-tag-component-library"
+                  color="purple"
+                >
                   {t('eventShowcase.tags.componentLibrary')}
                 </Tag>
               </Space>
 
-              <Title data-testid="app-shell-title" level={2} style={{ margin: 0 }}>
+              <Title
+                data-testid="app-shell-title"
+                level={2}
+                style={{ margin: 0 }}
+              >
                 {t('eventShowcase.hero.title')}
               </Title>
 

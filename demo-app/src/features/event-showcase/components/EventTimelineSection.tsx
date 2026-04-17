@@ -51,7 +51,10 @@ export function EventTimelineSection({
           image={Empty.PRESENTED_IMAGE_SIMPLE}
         />
       ) : (
-        <div data-testid="event-timeline-scroll" style={{ maxHeight: 550, overflowY: 'auto', paddingRight: 8 }}>
+        <div
+          data-testid="event-timeline-scroll"
+          style={{ maxHeight: 550, overflowY: 'auto', paddingRight: 8 }}
+        >
           <Timeline
             data-testid="event-timeline-data"
             events={timelineEvents.map((event) => ({

@@ -13,7 +13,10 @@ export function App() {
         },
       }}
     >
-      <Layout data-testid="app-layout" style={{ minHeight: '100vh', background: '#f5f7fa' }}>
+      <Layout
+        data-testid="app-layout"
+        style={{ minHeight: '100vh', background: '#f5f7fa' }}
+      >
         <Content data-testid="app-content" style={{ padding: '32px 24px' }}>
           <EventShowcasePage />
         </Content>
