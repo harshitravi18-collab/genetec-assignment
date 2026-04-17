@@ -21,6 +21,7 @@ export function EventGridSection({
 
   return (
     <Card
+      data-testid="event-grid-section"
       title={t('eventShowcase.sections.grid.title')}
       extra={
         <Typography.Text type="secondary">
@@ -34,9 +35,10 @@ export function EventGridSection({
       }}
     >
       {isLoading ? (
-        <Spin />
+        <Spin data-testid="event-grid-loading" />
       ) : error ? (
         <Alert
+          data-testid="event-grid-error"
           type="error"
           showIcon
           title={t('common.error')}
@@ -44,11 +46,13 @@ export function EventGridSection({
         />
       ) : !data || data.length === 0 ? (
         <Empty
+          data-testid="event-grid-empty"
           description={t('common.noData')}
           image={Empty.PRESENTED_IMAGE_SIMPLE}
         />
       ) : (
         <DataGrid
+          data-testid="event-grid-data"
           data={data}
           columns={[
             {

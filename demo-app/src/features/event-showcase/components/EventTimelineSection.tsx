@@ -21,6 +21,7 @@ export function EventTimelineSection({
 
   return (
     <Card
+      data-testid="event-timeline-section"
       title={t('eventShowcase.sections.timeline.title')}
       extra={
         <Typography.Text type="secondary">
@@ -34,9 +35,10 @@ export function EventTimelineSection({
       }}
     >
       {isLoading ? (
-        <Spin />
+        <Spin data-testid="event-timeline-loading" />
       ) : error ? (
         <Alert
+          data-testid="event-timeline-error"
           type="error"
           showIcon
           message={t('common.error')}
@@ -44,12 +46,17 @@ export function EventTimelineSection({
         />
       ) : timelineEvents.length === 0 ? (
         <Empty
+          data-testid="event-timeline-empty"
           description={t('common.noData')}
           image={Empty.PRESENTED_IMAGE_SIMPLE}
         />
       ) : (
-        <div style={{ maxHeight: 550, overflowY: 'auto', paddingRight: 8 }}>
+        <div
+          data-testid="event-timeline-scroll"
+          style={{ maxHeight: 550, overflowY: 'auto', paddingRight: 8 }}
+        >
           <Timeline
+            data-testid="event-timeline-data"
             events={timelineEvents.map((event) => ({
               id: event.id,
               title: event.title,

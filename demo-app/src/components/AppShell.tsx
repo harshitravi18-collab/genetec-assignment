@@ -15,8 +15,14 @@ export function AppShell({ children, onCreateEvent }: AppShellProps) {
   const { t } = useTranslation();
 
   return (
-    <Space direction="vertical" size={24} style={{ width: '100%' }}>
+    <Space
+      data-testid="app-shell"
+      direction="vertical"
+      size={24}
+      style={{ width: '100%' }}
+    >
       <Card
+        data-testid="app-shell-header"
         styles={{
           body: {
             padding: 24,
@@ -35,19 +41,27 @@ export function AppShell({ children, onCreateEvent }: AppShellProps) {
           <div style={{ flex: '1 1 640px', minWidth: 280 }}>
             <Space direction="vertical" size={10}>
               <Space wrap>
-                <Tag color="blue">
+                <Tag data-testid="app-shell-tag-genetec" color="blue">
                   {t('eventShowcase.tags.GenetecEventApp')}
                 </Tag>
-                <Tag color="purple">
+                <Tag
+                  data-testid="app-shell-tag-component-library"
+                  color="purple"
+                >
                   {t('eventShowcase.tags.componentLibrary')}
                 </Tag>
               </Space>
 
-              <Title level={2} style={{ margin: 0 }}>
+              <Title
+                data-testid="app-shell-title"
+                level={2}
+                style={{ margin: 0 }}
+              >
                 {t('eventShowcase.hero.title')}
               </Title>
 
               <Paragraph
+                data-testid="app-shell-description"
                 type="secondary"
                 style={{
                   margin: 0,
@@ -64,6 +78,7 @@ export function AppShell({ children, onCreateEvent }: AppShellProps) {
             <LanguageSwitcher />
 
             <Button
+              data-testid="create-event-button"
               type="primary"
               icon={<PlusOutlined />}
               size="large"

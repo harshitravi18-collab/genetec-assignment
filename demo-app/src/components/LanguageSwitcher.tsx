@@ -15,6 +15,7 @@ export function LanguageSwitcher() {
 
   return (
     <Space
+      data-testid="language-switcher"
       size={8}
       align="center"
       style={{
@@ -31,6 +32,7 @@ export function LanguageSwitcher() {
       </Typography.Text>
 
       <Segmented
+        data-testid="language-segmented"
         size="small"
         value={value}
         options={[
