@@ -14,12 +14,12 @@ export const createTimelineDayHeaderItem = ({
   key: `day-${day}`,
   icon: <span aria-hidden="true" />,
   content: (
-    <div style={{ paddingBottom: 4 }}>
-      <Typography.Title id={headingId} level={5} style={{ margin: 0 }}>
+    <div data-testid={`timeline-day-header-${day}`} style={{ paddingBottom: 4 }}>
+      <Typography.Title data-testid={`timeline-day-title-${day}`} id={headingId} level={5} style={{ margin: 0 }}>
         {day}
       </Typography.Title>
 
-      <Typography.Text type="secondary">
+      <Typography.Text data-testid={`timeline-day-count-${day}`} type="secondary">
         {eventCount} {eventCount === 1 ? 'event' : 'events'}
       </Typography.Text>
     </div>

@@ -40,11 +40,11 @@ export function DataGrid<T extends object>({
   } = useDataGrid(data, columns, pageSize);
 
   if (error) {
-    return <Alert type="error" message={error} showIcon />;
+    return <Alert data-testid="data-grid-error" type="error" message={error} showIcon />;
   }
 
   if (!loading && data.length === 0) {
-    return <Empty description={t('dataGrid.noData')} />;
+    return <Empty data-testid="data-grid-empty" description={t('dataGrid.noData')} />;
   }
 
   const tableColumns: ColumnsType<T> = visibleColumns.map((column) => {
@@ -59,6 +59,7 @@ export function DataGrid<T extends object>({
       title: (
         <div style={{ display: 'grid', gap: 8 }}>
           <button
+            data-testid={`data-grid-sort-${column.key}`}
             type="button"
             onClick={() =>
               column.sortable ? handleSort(column.key) : undefined
@@ -110,6 +111,7 @@ export function DataGrid<T extends object>({
 
           {column.filterable ? (
             <Input
+              data-testid={`data-grid-filter-${column.key}`}
               size="small"
               value={filters[column.key] ?? ''}
               onChange={handleInputChange}
@@ -125,7 +127,7 @@ export function DataGrid<T extends object>({
   });
 
   return (
-    <div style={{ display: 'grid', gap: 16 }}>
+    <div data-testid="data-grid" style={{ display: 'grid', gap: 16 }}>
       <DataGridToolbar
         columns={columns}
         visibility={visibility}
@@ -134,8 +136,9 @@ export function DataGrid<T extends object>({
         onToggleColumnVisibility={toggleColumnVisibility}
       />
 
-      <Card styles={{ body: { padding: 16 } }}>
+      <Card data-testid="data-grid-card" styles={{ body: { padding: 16 } }}>
         <Table<T>
+          data-testid="data-grid-table"
           rowKey={(_record, index) => String(index)}
           columns={tableColumns}
           dataSource={paginatedData}
@@ -148,7 +151,7 @@ export function DataGrid<T extends object>({
           }}
         />
 
-        <div style={{ marginTop: 16 }}>
+        <div data-testid="data-grid-pagination-wrapper" style={{ marginTop: 16 }}>
           <DataGridPagination
             currentPage={currentPage}
             pageSize={activePageSize}
