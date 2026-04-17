@@ -3,6 +3,8 @@ import dayjs from 'dayjs';
 import { DataGrid } from '@org/ui-components';
 import { useTranslation } from 'react-i18next';
 import type { DemoEvent } from '../types';
+import { Tag } from 'antd';
+import { getEventColor } from '../utils/eventUtils';
 
 type EventGridSectionProps = {
   data?: DemoEvent[];
@@ -61,17 +63,21 @@ export function EventGridSection({
             {
               key: 'date',
               label: t('eventForm.fields.date'),
-              accessor: (item) => dayjs(item.date).format('YYYY-MM-DD HH:mm'),
+              accessor: (item) => dayjs(item.date).format('MMM D, YYYY HH:mm'),
               sortable: true,
               sortAccessor: (item) => dayjs(item.date).valueOf(),
               filterable: true,
               filterAccessor: (item) =>
-                dayjs(item.date).format('YYYY-MM-DD HH:mm'),
+                dayjs(item.date).format('MMM D, YYYY HH:mm'),
             },
             {
               key: 'category',
               label: t('event.category.label'),
-              accessor: (item) => t(`event.category.${item.category}`),
+              accessor: (item) => (
+                <Tag color={getEventColor(item.category)}>
+                  {t(`event.category.${item.category}`)}
+                </Tag>
+              ),
               sortable: true,
               sortAccessor: (item) =>
                 t(`event.category.${item.category}`).toLowerCase(),

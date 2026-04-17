@@ -2,30 +2,12 @@ import { Alert, Card, Empty, Spin, Typography } from 'antd';
 import { Timeline } from '@org/ui-components';
 import { useTranslation } from 'react-i18next';
 import type { DemoEvent } from '../types';
+import { getEventColor } from '../utils/eventUtils';
 
 type EventTimelineSectionProps = {
   data?: DemoEvent[];
   isLoading: boolean;
   error: unknown;
-};
-
-const getTimelineColor = (
-  category: DemoEvent['category'],
-): 'blue' | 'red' | 'green' | 'gray' => {
-  switch (category) {
-    case 'meeting':
-      return 'blue';
-    case 'workshop':
-      return 'green';
-    case 'deadline':
-      return 'red';
-    case 'presentation':
-      return 'gray';
-    case 'training':
-      return 'blue';
-    default:
-      return 'gray';
-  }
 };
 
 export function EventTimelineSection({
@@ -73,7 +55,7 @@ export function EventTimelineSection({
               title: event.title,
               date: event.date,
               description: event.description,
-              color: getTimelineColor(event.category),
+              color: getEventColor(event.category),
               type:
                 event.category === 'meeting'
                   ? 'meeting'
