@@ -12,12 +12,12 @@ export function EventShowcasePage() {
 
   return (
     <AppShell onCreateEvent={() => setIsCreateModalOpen(true)}>
-      <Row gutter={[24, 24]} align="stretch">
-        <Col xs={24} xl={14}>
+      <Row data-testid="event-showcase-row" gutter={[24, 24]} align="stretch">
+        <Col data-testid="event-grid-column" xs={24} xl={14}>
           <EventGridSection data={data} isLoading={isLoading} error={error} />
         </Col>
 
-        <Col xs={24} xl={10}>
+        <Col data-testid="event-timeline-column" xs={24} xl={10}>
           <EventTimelineSection
             data={data}
             isLoading={isLoading}

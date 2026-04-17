@@ -16,6 +16,7 @@ export function EventFormModal({ open, onClose }: EventFormModalProps) {
 
   return (
     <Modal
+      data-testid="event-form-modal"
       open={open}
       onCancel={onClose}
       footer={null}
@@ -23,6 +24,7 @@ export function EventFormModal({ open, onClose }: EventFormModalProps) {
       title={t('eventShowcase.actions.newEvent')}
     >
       <EventForm
+        data-testid="event-form"
         mode="add"
         onCancel={onClose}
         onSave={async (values) => {
