@@ -97,6 +97,7 @@ export const createTimelineEventItem = ({
     icon: presentation.icon,
     content: (
       <button
+        data-testid={`timeline-event-button-${event.id}`}
         ref={buttonRef}
         id={itemId}
         type="button"
@@ -119,6 +120,7 @@ export const createTimelineEventItem = ({
         }}
       >
         <Card
+          data-testid={`timeline-event-card-${event.id}`}
           size="small"
           styles={{ body: { padding: 12 } }}
           style={{
@@ -127,20 +129,35 @@ export const createTimelineEventItem = ({
         >
           <Space orientation="vertical" size={8}>
             <Space size={8} wrap>
-              <Tag color={presentation.color} icon={presentation.icon}>
+              <Tag
+                data-testid={`timeline-event-tag-${event.id}`}
+                color={presentation.color}
+                icon={presentation.icon}
+              >
                 {presentation.label}
               </Tag>
             </Space>
 
             <Space orientation="vertical" size={4}>
-              <Typography.Text strong>{event.title}</Typography.Text>
+              <Typography.Text
+                data-testid={`timeline-event-title-${event.id}`}
+                strong
+              >
+                {event.title}
+              </Typography.Text>
 
-              <Typography.Text type="secondary">
+              <Typography.Text
+                data-testid={`timeline-event-time-${event.id}`}
+                type="secondary"
+              >
                 {formatTime(event.date)}
               </Typography.Text>
 
               {event.description ? (
-                <Typography.Text type="secondary">
+                <Typography.Text
+                  data-testid={`timeline-event-description-${event.id}`}
+                  type="secondary"
+                >
                   {event.description}
                 </Typography.Text>
               ) : null}

@@ -23,6 +23,7 @@ export function DataGridToolbar<T>({
 
   return (
     <div
+      data-testid="data-grid-toolbar"
       style={{
         display: 'flex',
         justifyContent: 'space-between',
@@ -33,6 +34,7 @@ export function DataGridToolbar<T>({
     >
       <Space>
         <Button
+          data-testid="data-grid-clear-filters"
           icon={<ReloadOutlined />}
           onClick={onClearFilters}
           disabled={!hasActiveFilters}
@@ -42,6 +44,7 @@ export function DataGridToolbar<T>({
       </Space>
 
       <Dropdown
+        data-testid="data-grid-columns-dropdown"
         trigger={['click']}
         menu={{
           items: hideableColumns.map((column) => ({
@@ -57,7 +60,9 @@ export function DataGridToolbar<T>({
           })),
         }}
       >
-        <Button icon={<EyeOutlined />}>{t('dataGrid.columns')}</Button>
+        <Button data-testid="data-grid-columns-button" icon={<EyeOutlined />}>
+          {t('dataGrid.columns')}
+        </Button>
       </Dropdown>
     </div>
   );

@@ -331,8 +331,9 @@ export function Timeline({
   );
 
   return (
-    <Card>
+    <Card data-testid="timeline-card">
       <div
+        data-testid="timeline-region"
         role="region"
         aria-label={ariaLabel}
         aria-describedby={`${instanceId}-instructions`}
@@ -342,13 +343,14 @@ export function Timeline({
         </p>
 
         <div
+          data-testid="timeline-live-region"
           ref={liveRef}
           aria-live="polite"
           aria-atomic="true"
           style={srOnlyStyle}
         />
 
-        <AntTimeline items={items} />
+        <AntTimeline data-testid="timeline-list" items={items} />
       </div>
 
       <style>

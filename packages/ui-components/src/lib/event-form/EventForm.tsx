@@ -110,9 +110,10 @@ export function EventForm({
   };
 
   return (
-    <Card title={titleText}>
-      <div style={{ display: 'grid', gap: 16 }}>
+    <Card data-testid="event-form-card" title={titleText}>
+      <div data-testid="event-form-body" style={{ display: 'grid', gap: 16 }}>
         <EventFormFields
+          data-testid="event-form-fields"
           values={values}
           errors={errors}
           titleLabel={t('eventForm.fields.title')}
@@ -136,9 +137,12 @@ export function EventForm({
         />
 
         <Space>
-          <Button onClick={onCancel}>{t('eventForm.actions.cancel')}</Button>
+          <Button data-testid="event-form-cancel" onClick={onCancel}>
+            {t('eventForm.actions.cancel')}
+          </Button>
 
           <Button
+            data-testid="event-form-submit"
             type="primary"
             loading={isSaving}
             onClick={() => void handleSubmit()}
@@ -148,12 +152,22 @@ export function EventForm({
         </Space>
 
         {submitError ? (
-          <Alert type="error" showIcon message={submitError} />
+          <Alert
+            data-testid="event-form-submit-error"
+            type="error"
+            showIcon
+            message={submitError}
+          />
         ) : null}
 
         {successMessage ? (
-          <div aria-live="polite">
-            <Alert type="success" showIcon message={successMessage} />
+          <div data-testid="event-form-success" aria-live="polite">
+            <Alert
+              data-testid="event-form-success-alert"
+              type="success"
+              showIcon
+              message={successMessage}
+            />
           </div>
         ) : null}
       </div>
